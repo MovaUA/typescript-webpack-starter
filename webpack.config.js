@@ -1,24 +1,36 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const path = require("path");
+const path = require('path');
+
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.ts",
-  devtool: "inline-source-map",
+  mode: 'development',
+  entry: './src/index.ts',
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: "ts-loader",
+        use: 'ts-loader',
         exclude: /node_modules/,
       },
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
   },
-  plugins: [new HtmlWebpackPlugin()],
+  devServer: {
+    contentBase: './dist',
+    port: 3000,
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 };
