@@ -3,5 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "mova <valeriy.molchanov.77@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^5.2.0",
+    "webpack-cli": "^4.1.0"
+  }
 }
