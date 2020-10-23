@@ -1,0 +1,7 @@
+{
+  "name": "wp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "mova <valeriy.molchanov.77@gmail.com>",
+  "license": "MIT"
+}
